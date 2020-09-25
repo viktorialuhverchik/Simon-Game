@@ -53,15 +53,15 @@ export const addMoveGame = (move: any) => {
     };
 };
 
-// export const addMoveUser = (step: number) => {
-//     let moveUser: any = [];
-//     moveUser.push(step);
-//     console.log(moveUser);
-//     return {
-//         type: MOVE_USER,
-//         moveUser
-//     };
-// };
+export const addMoveUser = (step: number) => {
+    let moveUser: any = [];
+    moveUser.push(step);
+    console.log(moveUser);
+    return {
+        type: MOVE_USER,
+        moveUser
+    };
+};
 
 export const setAvailableClick = (isAvailableClick: boolean) => ({
     type: TOGGLE_AVAILABLE,
@@ -73,7 +73,7 @@ export const updateScore = (score: number) => ({
     score
 });
 
-export const compareMove = (isStrictMode: boolean, moveGame: any, moveUser: any, score: number) => {
+export const compareMove = (isStrictMode: boolean, moveGame: any, step: any, score: number) => {
     return (dispatch: any) => {
         // if(moveGame.length !== moveUser.length) {
         //     console.log("Loose");
@@ -84,7 +84,7 @@ export const compareMove = (isStrictMode: boolean, moveGame: any, moveUser: any,
         //     return;
         // };
         for (let i = 0; i < moveGame.length; i++) {
-            if(moveGame[i] !== moveUser) {
+            if(moveGame[i] !== step) {
                 console.log("Loose");
                 if(isStrictMode) {
                     score = 0;

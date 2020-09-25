@@ -46,10 +46,10 @@ const Game = ({ isStart, isStrictMode, isAvailableClick, moveGame, moveUser, sco
         });
     }, [isStart, score]);
 
-    const waitUserMove = async (moveUser: number) => {
+    const waitUserMove = async (step: number) => {
 
         try {
-            await dispatch(compareMove(isStrictMode, moveGame, moveUser, score));
+            await dispatch(compareMove(isStrictMode, moveGame, step, score));
         } catch(error) {
             console.log(error);
         }
