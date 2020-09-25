@@ -73,18 +73,17 @@ export const updateScore = (score: number) => ({
     score
 });
 
-export const compareMove = (isStrictMode: boolean, moveGame: any, step: any, score: number) => {
+export const compareMove = (isStrictMode: boolean, moveGame: any, moveUser: any, score: number) => {
     return (dispatch: any) => {
-        // if(moveGame.length !== moveUser.length) {
-        //     console.log("Loose");
-        //     if(isStrictMode) {
-        //         score = 0;
-        //         dispatch(updateScore(score));
-        //     };
-        //     return;
-        // };
+        if(moveGame.length !== moveUser.length) {
+            console.log("Loose");
+            if(isStrictMode) {
+                score = 0;
+                dispatch(updateScore(score));
+            };
+        };
         for (let i = 0; i < moveGame.length; i++) {
-            if(moveGame[i] !== step) {
+            if(moveGame[i] !== moveUser[i]) {
                 console.log("Loose");
                 if(isStrictMode) {
                     score = 0;

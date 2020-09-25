@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMoveGame, compareMove } from '../../redux/actions/actions';
+import { addMoveGame, addMoveUser, compareMove } from '../../redux/actions/actions';
 
 import './Game.css'; 
 
@@ -46,33 +46,36 @@ const Game = ({ isStart, isStrictMode, isAvailableClick, moveGame, moveUser, sco
         });
     }, [isStart, score]);
 
-    const waitUserMove = async (step: number) => {
-
-        try {
-            await dispatch(compareMove(isStrictMode, moveGame, step, score));
-        } catch(error) {
-            console.log(error);
-        }
-    };
+    useEffect(() => {
+        const waitUserMove = async () => {
+            try {
+                await dispatch(compareMove(isStrictMode, moveGame, moveUser, score));
+            } catch(error) {
+                console.log(error);
+            }
+        };
+        waitUserMove();
+    }, [moveUser]);
+   
 
     return (
         <div className="app-game">
             <div className="sector-wrapper">
                 <div
                     className={`sector top-left inline yellow ${!isActiveYellow ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
-                    onClick={() => waitUserMove(0)}
+                    onClick={() => dispatch(addMoveUser(0))}
                 />
                 <div
                     className={`sector top-right inline red ${!isActiveRed ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
-                    onClick={() => waitUserMove(1)}
+                    onClick={() => dispatch(addMoveUser(1))}
                 />
                 <div
                     className={`sector bottom-left inline green ${!isActiveGreen ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
-                    onClick={() => waitUserMove(2)}
+                    onClick={() => dispatch(addMoveUser(2))}
                 />
                 <div
                     className={`sector bottom-right inline blue ${!isActiveBlue ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
-                    onClick={() => waitUserMove(3)}
+                    onClick={() => dispatch(addMoveUser(3))}
                 />
             </div>
         </div>
