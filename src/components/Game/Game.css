@@ -1,0 +1,72 @@
+.app-game {
+    width: 472px;
+    height: 472px;
+    border-radius: 100%;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    background-color: #727272;
+    top: 10vh;
+    box-shadow: 0px 0px 8px #727272;
+}
+
+.sector {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #727272;
+    border: 12px solid #727272;
+}
+
+.sector-wrapper {
+    position: relative;
+    top: 12px;
+}
+  
+.top-right {
+    border-top-right-radius: 100%;
+}
+  
+.bottom-right {
+    border-bottom-right-radius: 100%;
+}
+  
+.bottom-left{
+    border-bottom-left-radius: 100%;
+}
+  
+.top-left {
+    border-top-left-radius: 100%;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.red {
+    background-color: #BD2424;
+}
+
+.blue {
+    background-color: #2127C5;
+}
+
+.green {
+    background-color: #33A81F;
+}
+  
+.yellow {
+    background-color: #D8D12B;
+}
+
+.active {
+    background-color: #ffffff;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.available {
+    cursor: pointer;
+}
