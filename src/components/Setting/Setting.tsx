@@ -11,7 +11,7 @@ import {
 
 import './Setting.css';
 
-const Setting = ({ isOn, isStrictMode, isStart, isAvailableClick, score }: any) => {
+const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
 
     const dispatch = useDispatch();
 
@@ -22,9 +22,9 @@ const Setting = ({ isOn, isStrictMode, isStart, isAvailableClick, score }: any) 
                 <Button circular
                     color="red"
                     className="button-power"
-                    onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, score, dispatch, isAvailableClick))}
+                    onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, score, dispatch))}
                 >
-                    {!isOn ? <h6>Turn on</h6> : <h6>Turn off</h6>}
+                    {!isOn ? "Turn on" : "Turn off"}
                 </Button>
 
                 <Button circular
@@ -33,7 +33,7 @@ const Setting = ({ isOn, isStrictMode, isStart, isAvailableClick, score }: any) 
                     disabled={!isOn ? true : false}
                     onClick={() => dispatch(toggleMode(isStrictMode))}
                 >
-                    {!isStrictMode ? <h6>Simple</h6> : <h6>Use Strict</h6>}
+                    {!isStrictMode ? "Simple" : "Use Strict"}
                 </Button>
 
                 <Button circular
@@ -42,7 +42,7 @@ const Setting = ({ isOn, isStrictMode, isStart, isAvailableClick, score }: any) 
                     disabled={!isOn ? true : false}
                     onClick={() => dispatch(startGame(isStart))}
                 >
-                    {!isStart ? <h6>Start</h6> : <h6>Stop</h6>}
+                    {!isStart ? "Start" : "Stop"}
                 </Button>
             </div>
             <Display isOn={isOn} isStart={isStart} score={score}/>

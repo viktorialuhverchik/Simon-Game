@@ -2,7 +2,7 @@ import { MOVE_GAME, MOVE_USER, UPDATE_SCORE } from "../types";
 
 const initialState: any = {
     moveGame: [],
-    moveUser: [],
+    moveUser: null,
     score: 0
 };
 

@@ -14,7 +14,7 @@ export const powerOn = () => ({
     type: POWER_ON
 });
 
-export const powerOff = (isStart: boolean, score: number, dispatch: any, isAvailableClick: boolean) => {
+export const powerOff = (isStart: boolean, score: number, dispatch: any) => {
     if(isStart) {
         dispatch(startGame(isStart));
     };
@@ -38,30 +38,33 @@ export const toggleMode = (isStrictMode: boolean) => ({
     isStrictMode: !isStrictMode
 });
 
-export const startGame = (isStart: boolean) => ({
-    type: START_GAME,
-    isStart: !isStart
-});
+export const startGame = (isStart: boolean) => {
+    return (dispatch: any) => {
+        dispatch ({
+            type: MOVE_GAME,
+            moveGame: []
+        });
+        dispatch ({
+            type: START_GAME,
+            isStart: !isStart
+        });
+    }
+};
 
-export const addMoveGame = (move: any) => {
+export const addMoveGame = (moveGame: any) => {
     let nextStep: number = Math.round(Math.random() * 3);
-    move.push(nextStep);
-    console.log(move);
+    moveGame.push(nextStep);
+    console.log("Ход игры", moveGame);
     return {
         type: MOVE_GAME,
-        moveGame: move
+        moveGame
     };
 };
 
-export const addMoveUser = (step: number) => {
-    let moveUser: any = [];
-    moveUser.push(step);
-    console.log(moveUser);
-    return {
-        type: MOVE_USER,
-        moveUser
-    };
-};
+export const addMoveUser = (moveUser: number) => ({
+    type: MOVE_USER,
+    moveUser
+});
 
 export const setAvailableClick = (isAvailableClick: boolean) => ({
     type: TOGGLE_AVAILABLE,
@@ -73,26 +76,27 @@ export const updateScore = (score: number) => ({
     score
 });
 
-export const compareMove = (isStrictMode: boolean, moveGame: any, moveUser: any, score: number) => {
+export const compareMove = (isStrictMode: boolean, moveGame: any, moveUser: any, score: number, counter: number) => {
+    console.log("User", moveUser);
     return (dispatch: any) => {
-        if(moveGame.length !== moveUser.length) {
+        if(moveGame[counter - 1] !== moveUser && isStrictMode) {
             console.log("Loose");
-            if(isStrictMode) {
-                score = 0;
-                dispatch(updateScore(score));
-            };
-        };
-        for (let i = 0; i < moveGame.length; i++) {
-            if(moveGame[i] !== moveUser[i]) {
-                console.log("Loose");
-                if(isStrictMode) {
-                    score = 0;
-                    dispatch(updateScore(score));
-                };
-            } else {
+            dispatch ({
+                type: MOVE_GAME,
+                moveGame: []
+            });
+            score = 0;
+            dispatch(updateScore(score));
+        } else if (moveGame[counter - 1] !== moveUser && !isStrictMode){
+            console.log("Loose");
+            dispatch ({
+                type: MOVE_GAME,
+                moveGame
+            });
+        } else {
+            if(counter === moveGame.length) {
                 console.log("Win");
                 score++;
-                console.log(score);
                 dispatch(updateScore(score));
             };
         };
