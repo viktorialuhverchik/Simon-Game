@@ -4,7 +4,7 @@ const initialState: any = {
     isOn: false,
     isStrictMode: false,
     isStart: false,
-    isAvailableClick: true
+    isAvailableClick: false
 };
 
 export const appReducer = (state = initialState, action: any) => {

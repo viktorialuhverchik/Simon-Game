@@ -40,7 +40,7 @@ const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
                     color="green"
                     className="button-start"
                     disabled={!isOn ? true : false}
-                    onClick={() => dispatch(startGame(isStart))}
+                    onClick={() => dispatch(startGame(!isStart))}
                 >
                     {!isStart ? "Start" : "Stop"}
                 </Button>

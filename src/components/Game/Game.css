@@ -6,7 +6,6 @@
     text-align: center;
     margin: auto;
     background-color: #727272;
-    top: 10vh;
     box-shadow: 0px 0px 8px #727272;
 }
 
@@ -46,21 +45,26 @@
 .red {
     background-color: #BD2424;
 }
-
+.red.active {
+    background: radial-gradient(#ef8b8b 1%, #f75b5b 40%, #bd2424);
+}
 .blue {
     background-color: #2127C5;
 }
-
+.blue.active {
+    background: #ffffff;
+}
 .green {
     background-color: #33A81F;
 }
-  
+.green.active {
+    background: #ffffff;
+}
 .yellow {
     background-color: #D8D12B;
 }
-
-.active {
-    background-color: #ffffff;
+.yellow.active {
+    background: #ffffff;
 }
 
 .disabled {

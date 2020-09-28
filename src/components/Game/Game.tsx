@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMoveGame, addMoveUser, compareMove } from '../../redux/actions/actions';
+import { addMoveGame, compareMove } from '../../redux/actions/actions';
 
 import './Game.css'; 
 
-const Game = ({ isStart, isStrictMode, isAvailableClick, moveGame, moveUser, score }: any) => {
+const Game = ({ isStart, isStrictMode, moveGame, score }: any) => {
 
     const dispatch = useDispatch();
 
+    let [isAvailableClick, setIsAvailableClick] = useState(false);
     let [isActiveRed, setIsActiveRed] = useState(false);
     let [isActiveBlue, setIsActiveBlue] = useState(false);
     let [isActiveGreen, setIsActiveGreen] = useState(false);
@@ -17,44 +18,44 @@ const Game = ({ isStart, isStrictMode, isAvailableClick, moveGame, moveUser, sco
     useEffect(() => {
         if(!isStart) return;
         dispatch(addMoveGame(moveGame));
-        moveGame.forEach((step: any, index: number) => {
-            setTimeout(() => {
-                switch (step) {
-                    case 0:
-                        setTimeout(() => setIsActiveYellow(true), 1800);
-                        setTimeout(() => setIsActiveYellow(false), 3600);
-                        clearTimeout();
-                        break;
-                    case 1:
-                        setTimeout(() => setIsActiveRed(true), 1800);
-                        setTimeout(() => setIsActiveRed(false), 3600);
-                        clearTimeout();
-                        break;
-                    case 2:
-                        setTimeout(() => setIsActiveGreen(true), 1800);
-                        setTimeout(() => setIsActiveGreen(false), 3600);
-                        clearTimeout();
-                        break;
-                    case 3:
-                        setTimeout(() => setIsActiveBlue(true), 1800);
-                        setTimeout(() => setIsActiveBlue(false), 3600);
-                        clearTimeout();
-                        break;
-                    default: 
-                        return;
-                };
-            }, index * 3000);
-        });
         setCounter(0);
+        setIsAvailableClick(false);
+        let gameMoveIndex = 0;
+
+        const showMove = () => {
+            switch (moveGame[gameMoveIndex]) {
+                case 0:
+                    setIsActiveYellow(true);
+                    setTimeout(() => setIsActiveYellow(false), 1000);
+                    break;
+                case 1:
+                    setIsActiveRed(true);
+                    setTimeout(() => setIsActiveRed(false), 1000);
+                    break;
+                case 2:
+                    setIsActiveGreen(true);
+                    setTimeout(() => setIsActiveGreen(false), 1000);
+                    break;
+                case 3:
+                    setIsActiveBlue(true);
+                    setTimeout(() => setIsActiveBlue(false), 1000);
+                    break;
+            };
+            gameMoveIndex++;
+
+            if (moveGame.length === gameMoveIndex) {
+                setIsAvailableClick(true);
+            } else {
+                setTimeout(showMove, 1500);
+            }
+        };
+
+        setTimeout(showMove, 200);
     }, [isStart, score, moveGame, dispatch]);
 
-    useEffect(() => {
-        dispatch(compareMove(isStrictMode, moveGame, moveUser, score, counter));
-    }, [moveUser]);
-
     const waitUserMove = (step: number) => {
+        compareMove(isStrictMode, moveGame, step, score, counter)(dispatch);
         setCounter(++counter);
-        dispatch(addMoveUser(step));
     };
 
     return (

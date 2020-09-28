@@ -3,10 +3,9 @@
     height: 220px;
     position: absolute;
     border-radius: 100%;
-    top: 50%;
-    left: 50%;
-    margin: -235px 0 0  -122px;
-    background-color:#eee7e7;
+    top: calc(50% - 121px);
+    left: calc(50% - 121px);
+    background-color: #eee7e7;
     border: 12px solid #727272;
 }
 
