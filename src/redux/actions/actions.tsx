@@ -50,7 +50,6 @@ export const toggleStart = (isStart: boolean, score: number, movesGame: any) => 
 export const addMoveGame = (movesGame: any) => {
     let nextStep: number = Math.round(Math.random() * 3);
     movesGame.push(nextStep);
-    console.log("Moves of game", movesGame);
     return {
         type: MOVES_GAME,
         movesGame
@@ -63,20 +62,16 @@ export const updateScore = (score: number) => ({
 });
 
 export const compareMove = (isStrictMode: boolean, movesGame: any, moveUser: any, score: number, counter: number) => {
-    console.log("User move", moveUser);
     return (dispatch: any) => {
         if(movesGame[counter] !== moveUser && isStrictMode) {
-            console.log("Strict Loose");
             playAudio("/music/loose.wav");
             dispatch(toggleStart(true, 0, []));
         } else if (movesGame[counter] !== moveUser && !isStrictMode){
-            console.log("Non strict Loose");
             playAudio("/music/loose.wav");
-            let updatedMoves = movesGame.splice(1, movesGame.length);
+            let updatedMoves = movesGame.splice(0, movesGame.length - 1);
             dispatch(toggleStart(true, score, updatedMoves));
         } else {
             if(counter + 1 === movesGame.length) {
-                console.log("Win");
                 dispatch(updateScore(++score));
             };
         };
