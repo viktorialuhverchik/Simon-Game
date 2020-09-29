@@ -1,14 +1,14 @@
-import { MOVE_GAME, UPDATE_SCORE } from "../types";
+import { MOVES_GAME, UPDATE_SCORE } from "../types";
 
 const initialState: any = {
-    moveGame: [],
+    movesGame: [],
     score: 0
 };
 
 export const gameReducer = (state = initialState, action: any) => {
     switch (action.type) {
-        case MOVE_GAME:
-            return { ...state, moveGame: action.moveGame };
+        case MOVES_GAME:
+            return { ...state, movesGame: action.movesGame };
         case UPDATE_SCORE:
             return { ...state, score: action.score };
         default: 

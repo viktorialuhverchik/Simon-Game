@@ -1,12 +1,17 @@
 .app-display {
     width: 100px;
     height: 50px;
-    border: 1px solid #727272;
+    border: 1px solid #3a3a3a;
     border-radius: 10px;
-    background-color: #C2C2C2;
-    margin: 2vh auto 2vh;
+    background-color: #d4d3d3;
+    margin: 1vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: inset 1px 1px 4px #3a3a3a;
+}
+
+h6, h4 {
+    color: #3a3a3a;
 }

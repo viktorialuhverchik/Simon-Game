@@ -1,25 +1,25 @@
 .app-game {
-    width: 472px;
-    height: 472px;
+    width: 470px;
+    height: 470px;
     border-radius: 100%;
     position: relative;
     text-align: center;
     margin: auto;
-    background-color: #727272;
-    box-shadow: 0px 0px 8px #727272;
+    background-color: #3a3a3a;
+    box-shadow: 0px 0px 8px #3a3a3a;
 }
 
 .sector {
     position: relative;
     width: 200px;
     height: 200px;
-    background-color: #727272;
-    border: 12px solid #727272;
+    background-color: #3a3a3a;
+    border: 12px solid #3a3a3a;
 }
 
 .sector-wrapper {
     position: relative;
-    top: 12px;
+    top: 10px
 }
   
 .top-right {
@@ -45,26 +45,33 @@
 .red {
     background-color: #BD2424;
 }
+
 .red.active {
     background: radial-gradient(#ef8b8b 1%, #f75b5b 40%, #bd2424);
 }
+
 .blue {
     background-color: #2127C5;
 }
+
 .blue.active {
-    background: #ffffff;
+    background: radial-gradient(#8ba6ef 1%, #5b72f7 40%, #2127C5);
 }
+
 .green {
     background-color: #33A81F;
 }
+
 .green.active {
-    background: #ffffff;
+    background: radial-gradient(#9fef8b 1%, #5bf763 40%, #33A81F);
 }
+
 .yellow {
     background-color: #D8D12B;
 }
+
 .yellow.active {
-    background: #ffffff;
+    background: radial-gradient(#fcf59d 1%, #eee060 40%, #D8D12B);
 }
 
 .disabled {

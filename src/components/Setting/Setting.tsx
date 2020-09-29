@@ -1,11 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Button } from 'semantic-ui-react';
 import Display from '../Display/Display';
 import {
     powerOff,
     powerOn, 
-    startGame,
+    toggleStart,
     toggleMode
 } from '../../redux/actions/actions';
 
@@ -17,33 +16,37 @@ const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
 
     return (
         <div className="setting-panel">
-            <h2>Simon</h2>
+            <h1>Simon</h1>
             <div className="button-wrapper">
-                <Button circular
-                    color="red"
-                    className="button-power"
-                    onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, score, dispatch))}
-                >
-                    {!isOn ? "Turn on" : "Turn off"}
-                </Button>
 
-                <Button circular
-                    color="yellow"
-                    className="button-modes"
-                    disabled={!isOn ? true : false}
-                    onClick={() => dispatch(toggleMode(isStrictMode))}
-                >
-                    {!isStrictMode ? "Simple" : "Use Strict"}
-                </Button>
+                <div className="power-button_wrapper">
+                    <div
+                        className={`power-button available ${isOn ? "pushed" : ""}`}
+                        onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, isStrictMode, dispatch))}
+                    >
+                        
+                    </div>
+                    {!isOn ? <span>ON</span> : <span>OFF</span>}
+                </div>
 
-                <Button circular
-                    color="green"
-                    className="button-start"
-                    disabled={!isOn ? true : false}
-                    onClick={() => dispatch(startGame(!isStart))}
-                >
-                    {!isStart ? "Start" : "Stop"}
-                </Button>
+                <div className="modes-button_wrapper">
+                    <div
+                        className={`modes-button ${!isOn || isStart ? "disabled" : "available"} ${isStrictMode ? "pushed" : ""}`}
+                        onClick={() => dispatch(toggleMode(isStrictMode))}
+                    >
+                    </div>
+                    {!isStrictMode ? <span>SIMPLE</span> : <span>STRICT</span>}
+                </div>
+
+                <div className="start-button_wrapper">
+                    <div
+                        className={`toggle-start_button ${!isOn ? "disabled" : "available"} ${isStart ? "pushed" : ""}`}
+                        onClick={() => dispatch(toggleStart(!isStart, 0, []))}
+                    >
+                    </div>
+                    {!isStart ? <span>START</span> : <span>STOP</span>}
+                </div>
+
             </div>
             <Display isOn={isOn} isStart={isStart} score={score}/>
         </div>
