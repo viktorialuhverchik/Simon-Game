@@ -67,17 +67,16 @@ export const compareMove = (isStrictMode: boolean, movesGame: any, moveUser: any
     return (dispatch: any) => {
         if(movesGame[counter] !== moveUser && isStrictMode) {
             console.log("Strict Loose");
-            playAudio("../../music/loose.wav");
+            playAudio("/music/loose.wav");
             dispatch(toggleStart(true, 0, []));
         } else if (movesGame[counter] !== moveUser && !isStrictMode){
             console.log("Non strict Loose");
-            playAudio("../../music/loose.wav");
-            dispatch(updateScore(score));
-            dispatch(toggleStart(true, score, movesGame));
+            playAudio("/music/loose.wav");
+            let updatedMoves = movesGame.splice(1, movesGame.length);
+            dispatch(toggleStart(true, score, updatedMoves));
         } else {
             if(counter + 1 === movesGame.length) {
                 console.log("Win");
-                playAudio("../../music/win.wav");
                 dispatch(updateScore(++score));
             };
         };

@@ -26,22 +26,22 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
             switch (movesGame[gameMoveIndex]) {
                 case 0:
                     setIsActiveYellow(true);
-                    playAudio("../../music/0.wav");
+                    playAudio("/music/0.wav");
                     setTimeout(() => setIsActiveYellow(false), 1000);
                     break;
                 case 1:
                     setIsActiveRed(true);
-                    playAudio("../../music/1.wav");
+                    playAudio("/music/1.wav");
                     setTimeout(() => setIsActiveRed(false), 1000);
                     break;
                 case 2:
                     setIsActiveGreen(true);
-                    playAudio("../../music/2.wav");
+                    playAudio("/music/2.wav");
                     setTimeout(() => setIsActiveGreen(false), 1000);
                     break;
                 case 3:
                     setIsActiveBlue(true);
-                    playAudio("../../music/3.wav");
+                    playAudio("/music/3.wav");
                     setTimeout(() => setIsActiveBlue(false), 1000);
                     break;
             };
@@ -54,7 +54,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
             }
         };
         
-        setTimeout(showMove, 200);
+        setTimeout(showMove, 500);
     }, [isStart, score, movesGame, dispatch]);
 
     const checkUserMove = (step: number) => {
