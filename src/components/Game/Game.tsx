@@ -88,19 +88,31 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
         <div className="app-game">
             <div className="sector-wrapper">
                 <div
-                    className={`sector top-left inline yellow ${!isActiveYellow ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedYellow ? "" : "pushed"}`}
+                    className={`sector top-left inline yellow
+                        ${!isActiveYellow ? "" : "active"}
+                        ${!isAvailableClick ? "disabled" : "available"}
+                        ${!isPushedYellow ? "" : "pushed"}`}
                     onClick={() => checkUserMove(0)}
                 />
                 <div
-                    className={`sector top-right inline red ${!isActiveRed ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedRed ? "" : "pushed"}`}
+                    className={`sector top-right inline red
+                        ${!isActiveRed ? "" : "active"}
+                        ${!isAvailableClick ? "disabled" : "available"}
+                        ${!isPushedRed ? "" : "pushed"}`}
                     onClick={() => checkUserMove(1)}
                 />
                 <div
-                    className={`sector bottom-left inline green ${!isActiveGreen ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedGreen ? "" : "pushed"}`}
+                    className={`sector bottom-left inline green
+                        ${!isActiveGreen ? "" : "active"}
+                        ${!isAvailableClick ? "disabled" : "available"}
+                        ${!isPushedGreen ? "" : "pushed"}`}
                     onClick={() => checkUserMove(2)}
                 />
                 <div
-                    className={`sector bottom-right inline blue ${!isActiveBlue ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedBlue ? "" : "pushed"}`}
+                    className={`sector bottom-right inline blue
+                        ${!isActiveBlue ? "" : "active"}
+                        ${!isAvailableClick ? "disabled" : "available"}
+                        ${!isPushedBlue ? "" : "pushed"}`}
                     onClick={() => checkUserMove(3)}
                 />
             </div>
