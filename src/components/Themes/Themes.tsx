@@ -31,7 +31,9 @@ const Themes = () => {
     });
 
     return (
-        <button className="toggle-themes-button" onClick={() => toggleTheme(selectedTheme)}>{selectedTheme}</button>
+        <div className="toggle-themes-button" onClick={() => toggleTheme(selectedTheme)}>
+            <h5>{selectedTheme}</h5>
+        </div>
     );
 };
 

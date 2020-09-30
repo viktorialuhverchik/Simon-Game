@@ -39,10 +39,13 @@ body.synthwave-theme span {
     color: #331a38;
 }
 
+body.synthwave-theme h5 {
+    color: #f75bbb;
+}
+
 body.synthwave-theme .toggle-themes-button {
     background-color: #491d88;
-    color: #fa448c;
-    border: 1px solid #fa448c;
+    border: 2px solid #f75bbb;
     border-radius: 5px;
     outline: none;
 }

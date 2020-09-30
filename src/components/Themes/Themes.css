@@ -1,7 +1,14 @@
 .toggle-themes-button {
-    background-color: #33A81F;
-    color: #fec859;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100px;
+    background-color: #eee060;
+    color: #3a3a3a;
+    border: 2px solid #3a3a3a;
+    border-radius: 8px;
     outline: none;
     margin-top: 10vh;
+    cursor: pointer;
 }
