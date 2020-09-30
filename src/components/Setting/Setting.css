@@ -3,7 +3,7 @@
     height: 220px;
     position: absolute;
     border-radius: 100%;
-    top: calc(50% - 121px);
+    top: calc(50% - 75px);
     left: calc(50% - 121px);
     background: radial-gradient(#adaaaa 60%, #e9e9e9);
     border: 12px solid #3a3a3a;
@@ -88,6 +88,10 @@ span {
 
 .light {
     background-color: #0fa523;
+}
+
+.pushed-button {
+    box-shadow: inset 1px 1px 4px #3a3a3a;
 }
 
 .pushed {

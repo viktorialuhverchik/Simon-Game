@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import Game from './components/Game/Game';
 import Setting from './components/Setting/Setting';
+import Themes from './components/Themes/Themes';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ const App: FC = () => {
     
     return (
         <div className="App">
+            <Themes/>
             <Game isStart={isStart} isStrictMode={isStrictMode} movesGame={movesGame} score={score} />
             <Setting isOn={isOn} isStrictMode={isStrictMode} isStart={isStart} score={score} />
         </div>

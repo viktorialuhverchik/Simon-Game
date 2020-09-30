@@ -47,6 +47,16 @@ export const toggleStart = (isStart: boolean, score: number, movesGame: any) => 
     }
 };
 
+export const repeatGame = (score: number, movesGame: any) => {
+    return (dispatch: any) => {
+        dispatch(updateScore(score));
+        dispatch ({
+            type: MOVES_GAME,
+            movesGame
+        });
+    }
+};
+
 export const addMoveGame = (movesGame: any) => {
     let nextStep: number = Math.round(Math.random() * 3);
     movesGame.push(nextStep);
@@ -69,7 +79,7 @@ export const compareMove = (isStrictMode: boolean, movesGame: any, moveUser: any
         } else if (movesGame[counter] !== moveUser && !isStrictMode){
             playAudio("/music/loose.wav");
             let updatedMoves = movesGame.splice(0, movesGame.length - 1);
-            dispatch(toggleStart(true, score, updatedMoves));
+            dispatch(repeatGame(score, updatedMoves));
         } else {
             if(counter + 1 === movesGame.length) {
                 dispatch(updateScore(++score));

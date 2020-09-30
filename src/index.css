@@ -12,3 +12,99 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body.synthwave-theme {
+    background-image: url("/image/2.jpg");
+    background-size: cover;
+    background-color: #331a38;
+}
+    
+
+body.synthwave-theme .app-game {
+    background-color: #331a38;
+    box-shadow: 0px 0px 8px #331a38;
+}
+
+body.synthwave-theme .sector {
+    background-color: #331a38;
+    border: 12px solid #331a38;
+}
+
+
+body.synthwave-theme h1,
+body.synthwave-theme h4,
+body.synthwave-theme h6,
+body.synthwave-theme span {
+    color: #331a38;
+}
+
+body.synthwave-theme .toggle-themes-button {
+    background-color: #491d88;
+    color: #fa448c;
+    border: 1px solid #fa448c;
+    border-radius: 5px;
+    outline: none;
+}
+
+body.synthwave-theme .red {
+    background-color: #fa448c;
+}
+
+body.synthwave-theme .red.active {
+    background: radial-gradient(#ef8bc9 1%, #f75bbb 40%, #fa448c);
+}
+
+body.synthwave-theme .blue {
+    background-color: #491d88;
+}
+
+body.synthwave-theme .blue.active {
+    background: radial-gradient(#8b92ef 1%, #7052da 40%, #491d88);
+}
+
+body.synthwave-theme .green {
+    background-color: #43b5a0;
+}
+
+body.synthwave-theme .green.active {
+    background: radial-gradient(#8befe2 1%, #5bf7d0 40%, #43b5a0);
+}
+
+body.synthwave-theme .yellow {
+    background-color: #fec859;
+}
+
+body.synthwave-theme .yellow.active {
+    background: radial-gradient(#fcdda3 1%, #eec160 40%, #fec859);
+}
+
+body.synthwave-theme .power-button {
+    border: 3px solid #331a38;
+    box-shadow: 2px 2px 4px #331a38;
+    background-color: #fa448c;
+}
+
+body.synthwave-theme .modes-button {
+    border: 3px solid #331a38;
+    box-shadow: 2px 2px 4px #331a38;
+    background-color: #fec859;
+}
+
+body.synthwave-theme .toggle-start_button {
+    border: 3px solid #331a38;
+    box-shadow: 2px 2px 4px #331a38;
+    background-color: #43b5a0;
+}
+
+body.synthwave-theme .setting-panel {
+    border: 12px solid #331a38;
+}
+
+body.synthwave-theme .pushed-button {
+    box-shadow: inset 1px 1px 4px #331a38;
+}
+
+body.synthwave-theme .pushed {
+    box-shadow: inset 1px 1px 10px #331a38;
+}

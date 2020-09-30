@@ -21,7 +21,7 @@ const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
 
                 <div className="power-button_wrapper">
                     <div
-                        className={`power-button available ${isOn ? "pushed" : ""}`}
+                        className={`power-button available ${isOn ? "pushed-button" : ""}`}
                         onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, isStrictMode, dispatch))}
                     >
                         
@@ -31,7 +31,7 @@ const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
 
                 <div className="modes-button_wrapper">
                     <div
-                        className={`modes-button ${!isOn || isStart ? "disabled" : "available"} ${isStrictMode ? "pushed" : ""}`}
+                        className={`modes-button ${!isOn || isStart ? "disabled" : "available"} ${isStrictMode ? "pushed-button" : ""}`}
                         onClick={() => dispatch(toggleMode(isStrictMode))}
                     >
                     </div>
@@ -40,7 +40,7 @@ const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
 
                 <div className="start-button_wrapper">
                     <div
-                        className={`toggle-start_button ${!isOn ? "disabled" : "available"} ${isStart ? "pushed" : ""}`}
+                        className={`toggle-start_button ${!isOn ? "disabled" : "available"} ${isStart ? "pushed-button" : ""}`}
                         onClick={() => dispatch(toggleStart(!isStart, 0, []))}
                     >
                     </div>
