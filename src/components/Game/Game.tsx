@@ -13,7 +13,11 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
     let [isActiveBlue, setIsActiveBlue] = useState(false);
     let [isActiveGreen, setIsActiveGreen] = useState(false);
     let [isActiveYellow, setIsActiveYellow] = useState(false);
-    let [counter, setCounter] = useState(0);    
+    let [counter, setCounter] = useState(0);  
+    let [isPushedRed, setIsPushedRed] = useState(false);
+    let [isPushedBlue, setIsPushedBlue] = useState(false);
+    let [isPushedGreen, setIsPushedGreen] = useState(false);
+    let [isPushedYellow, setIsPushedYellow] = useState(false);
 
     useEffect(() => {
         if(!isStart) return;
@@ -58,6 +62,24 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
     }, [isStart, score, movesGame, dispatch]);
 
     const checkUserMove = (step: number) => {
+        switch (step) {
+            case 0:
+                setIsPushedYellow(true);
+                setTimeout(() => setIsPushedYellow(false), 200);
+                break;
+            case 1:
+                setIsPushedRed(true);
+                setTimeout(() => setIsPushedRed(false), 200);
+                break;
+            case 2:
+                setIsPushedGreen(true);
+                setTimeout(() => setIsPushedGreen(false), 200);
+                break;
+            case 3:
+                setIsPushedBlue(true);
+                setTimeout(() => setIsPushedBlue(false), 200);
+                break;
+        };
         compareMove(isStrictMode, movesGame, step, score, counter)(dispatch);
         setCounter(++counter);
     };
@@ -66,19 +88,19 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
         <div className="app-game">
             <div className="sector-wrapper">
                 <div
-                    className={`sector top-left inline yellow ${!isActiveYellow ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
+                    className={`sector top-left inline yellow ${!isActiveYellow ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedYellow ? "" : "pushed"}`}
                     onClick={() => checkUserMove(0)}
                 />
                 <div
-                    className={`sector top-right inline red ${!isActiveRed ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
+                    className={`sector top-right inline red ${!isActiveRed ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedRed ? "" : "pushed"}`}
                     onClick={() => checkUserMove(1)}
                 />
                 <div
-                    className={`sector bottom-left inline green ${!isActiveGreen ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
+                    className={`sector bottom-left inline green ${!isActiveGreen ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedGreen ? "" : "pushed"}`}
                     onClick={() => checkUserMove(2)}
                 />
                 <div
-                    className={`sector bottom-right inline blue ${!isActiveBlue ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"}`}
+                    className={`sector bottom-right inline blue ${!isActiveBlue ? "" : "active"} ${!isAvailableClick ? "disabled" : "available"} ${!isPushedBlue ? "" : "pushed"}`}
                     onClick={() => checkUserMove(3)}
                 />
             </div>
