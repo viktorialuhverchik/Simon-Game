@@ -8,9 +8,9 @@ import {
     toggleMode
 } from '../../redux/actions/actions';
 
-import './Setting.css';
+import './Settings.css';
 
-const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
+const Settings = ({ isOn, isStrictMode, isStart, score }: any) => {
 
     const dispatch = useDispatch();
 
@@ -53,4 +53,4 @@ const Setting = ({ isOn, isStrictMode, isStart, score }: any) => {
     );
 };
 
-export default Setting;
+export default Settings;

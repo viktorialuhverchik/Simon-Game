@@ -44,7 +44,7 @@ export const toggleStart = (isStart: boolean, score: number, movesGame: any) => 
             type: TOGGLE_START,
             isStart
         });
-    }
+    };
 };
 
 export const repeatGame = (score: number, movesGame: any) => {
@@ -71,7 +71,7 @@ export const updateScore = (score: number) => ({
     score
 });
 
-export const compareMove = (isStrictMode: boolean, movesGame: any, moveUser: any, score: number, counter: number) => {
+export const compareMove = (isStrictMode: boolean, movesGame: any, moveUser: number, score: number, counter: number) => {
     return (dispatch: any) => {
         if(movesGame[counter] !== moveUser && isStrictMode) {
             playAudio("/music/loose.wav");
