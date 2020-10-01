@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Settings component renders Game component 1`] = `
+exports[`Settings component renders Settings component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

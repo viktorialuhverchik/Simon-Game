@@ -23,7 +23,7 @@ describe('Settings component',() => {
         fetchMock.mockClear();
     });
 
-    it('renders Game component', () => {
+    it('renders Settings component', () => {
         const wrapper = renderWithRedux(<Settings />);
         expect(wrapper).toMatchSnapshot();
     });

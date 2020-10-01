@@ -47,14 +47,6 @@ describe('Game component',() => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    // it("should render game buttons", () => {
-    //     const { getByTestId } = renderWithRedux(<Game isStart={isStart} isStrictMode={isStrictMode} movesGame={movesGame} score={score} />);
-    //     expect(getByTestId("yellow")).toBeTruthy();
-    //     expect(getByTestId("blue")).toBeTruthy();
-    //     expect(getByTestId("red")).toBeTruthy();
-    //     expect(getByTestId("green")).toBeTruthy();
-    // });
-
     it('should add move game', () => {
         let movesGame: any = [];
         const expectedActions = { type: MOVES_GAME, movesGame };

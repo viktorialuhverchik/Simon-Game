@@ -3,8 +3,8 @@ import { renderWithRedux } from '../../index.test';
 import Themes from './Themes';
 import { fireEvent } from '@testing-library/react';
 
-describe('Settings component',() => {
-    it('renders Game component', () => {
+describe('Themes component',() => {
+    it('renders Themes component', () => {
         const wrapper = renderWithRedux(<Themes />);
         expect(wrapper).toMatchSnapshot();
     });
