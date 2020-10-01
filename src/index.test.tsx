@@ -1,13 +1,13 @@
 import React from 'react';
 import App from './App';
-import { Provider } from 'react-redux';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { rootReducer } from './redux/reducers/rootReducer';
-import { render } from 'enzyme';
+import { Provider } from 'react-redux';
+import { render } from '@testing-library/react';
 import thunk from 'redux-thunk';
 
 export const makeTestStore = () => {
-    const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+    const store = createStore(rootReducer, applyMiddleware(thunk));
     const origDispatch = store.dispatch;
     store.dispatch = jest.fn(origDispatch);
     return store;
@@ -16,8 +16,7 @@ export const makeTestStore = () => {
 const renderWithRedux = (
     component: any,
     {
-        store = makeTestStore(),
-        ...renderOptions
+        store = makeTestStore()
     } = {}
 ) => {
     const Wrapper = ({ children }: any) => {
@@ -27,18 +26,14 @@ const renderWithRedux = (
             </Provider>
         );
       };
-    return render(component, { wrapper: Wrapper, ...renderOptions })
+    return render(component, { wrapper: Wrapper })
 };
 
-const store = makeTestStore();
-
-test('renders learn react link', () => {
-    const wrapper = renderWithRedux(
-        <Provider store={store}>
-            <App />
-        </Provider>
-    );
-    expect(wrapper).toBeTruthy();
+describe('App component',() => {
+    it('renders App component', () => {
+        const wrapper = renderWithRedux(<App />);
+        expect(wrapper).toBeTruthy();
+    });
 });
 
 export { renderWithRedux };

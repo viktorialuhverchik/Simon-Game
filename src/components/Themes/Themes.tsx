@@ -31,7 +31,11 @@ const Themes = () => {
     });
 
     return (
-        <div className="toggle-themes-button" onClick={() => toggleTheme(selectedTheme)}>
+        <div
+            className="toggle-themes-button"
+            onClick={() => toggleTheme(selectedTheme)}
+            data-testid="themes"
+        >
             <h5>{selectedTheme}</h5>
         </div>
     );

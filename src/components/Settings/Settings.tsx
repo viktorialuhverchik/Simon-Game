@@ -23,6 +23,7 @@ const Settings = ({ isOn, isStrictMode, isStart, score }: any) => {
                     <div
                         className={`power-button available ${isOn ? "pushed-button" : ""}`}
                         onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, isStrictMode, dispatch))}
+                        data-testid="power"
                     >
                         
                     </div>
@@ -33,6 +34,7 @@ const Settings = ({ isOn, isStrictMode, isStart, score }: any) => {
                     <div
                         className={`modes-button ${!isOn || isStart ? "disabled" : "available"} ${isStrictMode ? "pushed-button" : ""}`}
                         onClick={() => dispatch(toggleMode(isStrictMode))}
+                        data-testid="mode"
                     >
                     </div>
                     {!isStrictMode ? <span>SIMPLE</span> : <span>STRICT</span>}
@@ -42,6 +44,7 @@ const Settings = ({ isOn, isStrictMode, isStart, score }: any) => {
                     <div
                         className={`toggle-start_button ${!isOn ? "disabled" : "available"} ${isStart ? "pushed-button" : ""}`}
                         onClick={() => dispatch(toggleStart(!isStart, 0, []))}
+                        data-testid="start"
                     >
                     </div>
                     {!isStart ? <span>START</span> : <span>STOP</span>}

@@ -85,7 +85,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
     };
 
     return (
-        <div className="app-game">
+        <div className="app-game" data-testid="game">
             <div className="sector-wrapper">
                 <div
                     className={`sector top-left inline yellow
@@ -93,6 +93,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
                         ${!isAvailableClick ? "disabled" : "available"}
                         ${!isPushedYellow ? "" : "pushed"}`}
                     onClick={() => checkUserMove(0)}
+                    data-testid="yellow"
                 />
                 <div
                     className={`sector top-right inline red
@@ -100,6 +101,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
                         ${!isAvailableClick ? "disabled" : "available"}
                         ${!isPushedRed ? "" : "pushed"}`}
                     onClick={() => checkUserMove(1)}
+                    data-testid="red"
                 />
                 <div
                     className={`sector bottom-left inline green
@@ -107,6 +109,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
                         ${!isAvailableClick ? "disabled" : "available"}
                         ${!isPushedGreen ? "" : "pushed"}`}
                     onClick={() => checkUserMove(2)}
+                    data-testid="green"
                 />
                 <div
                     className={`sector bottom-right inline blue
@@ -114,6 +117,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
                         ${!isAvailableClick ? "disabled" : "available"}
                         ${!isPushedBlue ? "" : "pushed"}`}
                     onClick={() => checkUserMove(3)}
+                    data-testid="blue"
                 />
             </div>
         </div>
