@@ -69,8 +69,6 @@ describe('Game component',() => {
     jest.useFakeTimers();
 
     it("setTimeout showMove", () => {
-        const showMove = require("./Game.tsx");
-        showMove();
         jest.runTimersToTime(1000);
         expect(setTimeout).toBeCalled();
     });
