@@ -1,11 +1,11 @@
 import React from 'react';
-import thunk from 'redux-thunk';
 import { renderWithRedux } from '../../index.test';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { fireEvent } from '@testing-library/react';
 import { powerOff, powerOn, toggleMode, toggleStart } from '../../redux/actions/actions';
 import { POWER_OFF, POWER_ON, TOGGLE_MODE, TOGGLE_START, UPDATE_SCORE } from '../../redux/types';
-import configureMockStore from 'redux-mock-store';
 import Settings from './Settings';
-import { fireEvent } from '@testing-library/react';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

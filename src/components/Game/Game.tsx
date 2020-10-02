@@ -59,6 +59,7 @@ const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
         };
         
         setTimeout(showMove, 500);
+        module.exports = showMove;
     }, [isStart, score, movesGame, dispatch]);
 
     const checkUserMove = (step: number) => {

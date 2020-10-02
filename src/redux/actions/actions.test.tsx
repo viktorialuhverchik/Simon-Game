@@ -63,7 +63,7 @@ describe('actions', () => {
             type: types.MOVES_GAME,
             movesGame
         };
-        store.dispatch(actions.updateScore(score));
+        
         const repeatGame = jest.fn();
         repeatGame.mockImplementation(() => {
             return expectedAction;
@@ -86,7 +86,7 @@ describe('actions', () => {
         let score: number = 0;
         const expectedAction = {
             type: types.UPDATE_SCORE,
-            score
+            score: ++score
         };
         const updateScore = jest.fn();
         updateScore.mockImplementation(() => {
@@ -100,10 +100,10 @@ describe('actions', () => {
         let movesGame: any = [1];
         let moveUser: number = 1;
         let score: number = 0;
-        let counter: number = 0;
+        let counter: number = 1;
         const expectedAction = {
             type: types.UPDATE_SCORE,
-            score: score++
+            score: ++score
         };
         const compareMove = jest.fn();
         compareMove.mockImplementation(() => {

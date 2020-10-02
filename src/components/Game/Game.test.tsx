@@ -1,12 +1,12 @@
 import React from 'react';
 import { renderWithRedux } from '../../index.test';
-import Game from './Game';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 import fetchMock from "jest-fetch-mock";
 import { fireEvent } from '@testing-library/react';
 import { addMoveGame } from '../../redux/actions/actions';
 import { MOVES_GAME } from '../../redux/types';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
+import Game from './Game';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -14,7 +14,7 @@ const mockStore = configureMockStore(middlewares);
 let isOn: boolean = true;
 let isStart: boolean = true;
 let isStrictMode: boolean = false;
-let movesGame: any = [1, 2];
+let movesGame: any = [];
 let score: number = 0;
 
 const initialState = {
@@ -66,10 +66,12 @@ describe('Game component',() => {
         expect(getByTestId("green")).toBeDefined();
     });
 
-    it("setTimeout", () => {
-        jest.useFakeTimers();
-        let callback = jest.fn();
-        setTimeout(callback, 200);
-        jest.runAllTimers();
+    jest.useFakeTimers();
+
+    it("setTimeout showMove", () => {
+        const showMove = require("./Game.tsx");
+        showMove();
+        jest.runTimersToTime(1000);
+        expect(setTimeout).toBeCalled();
     });
 });
