@@ -55,29 +55,41 @@ const Game: FC<PropsGame> = ({ isStart, isStrictMode, movesGame, score }) => {
             if (movesGame.length === gameMoveIndex) {
                 setIsAvailableClick(true);
             } else {
-                setTimeout(showMove, 1500);
+                setTimeout(showMove, 1200);
             }
         };
         
-        setTimeout(showMove, 500);
+        setTimeout(showMove, 1500);
     }, [isStart, score, movesGame, dispatch]);
 
     const checkUserMove = (step: number) => {
         switch (step) {
             case 0:
                 setIsPushedYellow(true);
+                setIsActiveYellow(true);
+                playAudio("/music/0.wav");
+                setTimeout(() => setIsActiveYellow(false), 800);
                 setTimeout(() => setIsPushedYellow(false), 200);
                 break;
             case 1:
                 setIsPushedRed(true);
+                setIsActiveRed(true);
+                playAudio("/music/1.wav");
+                setTimeout(() => setIsActiveRed(false), 800);
                 setTimeout(() => setIsPushedRed(false), 200);
                 break;
             case 2:
                 setIsPushedGreen(true);
+                setIsActiveGreen(true);
+                playAudio("/music/2.wav");
+                setTimeout(() => setIsActiveGreen(false), 800);
                 setTimeout(() => setIsPushedGreen(false), 200);
                 break;
             case 3:
                 setIsPushedBlue(true);
+                setIsActiveBlue(true);
+                playAudio("/music/3.wav");
+                setTimeout(() => setIsActiveBlue(false), 800);
                 setTimeout(() => setIsPushedBlue(false), 200);
                 break;
         };
