@@ -65,11 +65,14 @@ describe('Game component',() => {
         expect(getByTestId("blue")).toBeDefined();
         expect(getByTestId("green")).toBeDefined();
     });
+});
+
+describe('Game setTimeout',() => {
 
     jest.useFakeTimers();
 
     it("setTimeout showMove", () => {
-        jest.runTimersToTime(1000);
+        jest.runAllTimers();
         expect(setTimeout).toBeCalled();
     });
 });

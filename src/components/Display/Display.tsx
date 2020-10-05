@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { sayHello } from '../../redux/actions/actions';
+import { PropsDisplay } from '../../types';
 
 import './Display.css';
 
-const Display = ({ isOn, isStart, score }: any) => {
+const Display: FC<PropsDisplay> = ({ isOn, isStart, score }) => {
 
     return (
         <div className="app-display">

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
+import { IThemes } from '../../types';
 
 import './Themes.css';
 
-
-const themes: any = {
+const themes: IThemes = {
     classical: "Classical",
     synthwave: "Synthwave"
 };
 
-const Themes = () => {
+const Themes: FC = () => {
 
-    const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem("theme") || themes.classical);
+    const [selectedTheme, setSelectedTheme] = useState<string>(localStorage.getItem("theme") || themes.classical);
 
-    const toggleTheme = (theme: any) => {
+    const toggleTheme = (theme: string) => {
         if (theme === themes.classical) {
             setSelectedTheme(themes.synthwave);
         } else if (theme === themes.synthwave) {

@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addMoveGame, compareMove, playAudio } from '../../redux/actions/actions';
+import { PropsGame } from '../../types';
 
-import './Game.css'; 
+import './Game.css';
 
-const Game = ({ isStart, isStrictMode, movesGame, score }: any) => {
+const Game: FC<PropsGame> = ({ isStart, isStrictMode, movesGame, score }) => {
 
     const dispatch = useDispatch();
 
-    let [isAvailableClick, setIsAvailableClick] = useState(false);
-    let [isActiveRed, setIsActiveRed] = useState(false);
-    let [isActiveBlue, setIsActiveBlue] = useState(false);
-    let [isActiveGreen, setIsActiveGreen] = useState(false);
-    let [isActiveYellow, setIsActiveYellow] = useState(false);
-    let [counter, setCounter] = useState(0);  
-    let [isPushedRed, setIsPushedRed] = useState(false);
-    let [isPushedBlue, setIsPushedBlue] = useState(false);
-    let [isPushedGreen, setIsPushedGreen] = useState(false);
-    let [isPushedYellow, setIsPushedYellow] = useState(false);
+    let [isAvailableClick, setIsAvailableClick] = useState<boolean>(false);
+    let [isActiveRed, setIsActiveRed] = useState<boolean>(false);
+    let [isActiveBlue, setIsActiveBlue] = useState<boolean>(false);
+    let [isActiveGreen, setIsActiveGreen] = useState<boolean>(false);
+    let [isActiveYellow, setIsActiveYellow] = useState<boolean>(false);
+    let [counter, setCounter] = useState<number>(0);  
+    let [isPushedRed, setIsPushedRed] = useState<boolean>(false);
+    let [isPushedBlue, setIsPushedBlue] = useState<boolean>(false);
+    let [isPushedGreen, setIsPushedGreen] = useState<boolean>(false);
+    let [isPushedYellow, setIsPushedYellow] = useState<boolean>(false);
 
     useEffect(() => {
         if(!isStart) return;

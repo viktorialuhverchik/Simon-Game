@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import Display from '../Display/Display';
 import {
@@ -7,10 +7,11 @@ import {
     toggleStart,
     toggleMode
 } from '../../redux/actions/actions';
+import { PropsSettings } from '../../types';
 
 import './Settings.css';
 
-const Settings = ({ isOn, isStrictMode, isStart, score }: any) => {
+const Settings: FC<PropsSettings> = ({ isOn, isStrictMode, isStart, score }) => {
 
     const dispatch = useDispatch();
 
@@ -25,7 +26,6 @@ const Settings = ({ isOn, isStrictMode, isStart, score }: any) => {
                         onClick={() => !isOn ? dispatch(powerOn()) : dispatch(powerOff(isStart, isStrictMode, dispatch))}
                         data-testid="power"
                     >
-                        
                     </div>
                     {!isOn ? <span>ON</span> : <span>OFF</span>}
                 </div>

@@ -1,12 +1,12 @@
-import { POWER_ON, POWER_OFF, TOGGLE_MODE, TOGGLE_START } from "../types";
+import { POWER_ON, POWER_OFF, TOGGLE_MODE, TOGGLE_START, AppState, AppActionTypes } from "../types";
 
-const initialState: any = {
+const initialState: AppState = {
     isOn: false,
     isStrictMode: false,
     isStart: false
 };
 
-export const appReducer = (state = initialState, action: any) => {
+export const appReducer = (state = initialState, action: AppActionTypes): AppState => {
     switch (action.type) {
         case POWER_ON:
             return { ...state, isOn: true };
